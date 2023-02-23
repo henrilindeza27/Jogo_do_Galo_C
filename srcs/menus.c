@@ -67,6 +67,7 @@ int	Menu_Escolha(void)
  * 
  * n_jogador: 1 se for o Jogador1
  * 			  2 se for o Jogador2
+ * 			  3 se for o PC
  * 
  * Return: Void
  * 

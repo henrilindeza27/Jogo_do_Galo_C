@@ -1,9 +1,19 @@
 #include "fh.h"
 
-//Verificar vitoria (linhas/colunas/diagonais)
-//Verificar defesa (linhas/colunas/diagonais)
-//se nenhuma das 2 de cima retorna afirmativo, random playVitoria
-
+/**
+ * Function: pc_play
+ * 
+ * Verifica primeiramente se existe alguma jogada vencedora
+ * e se verdadeiro ela faz essa jogada, caso contrário verifica
+ * se há alguma jogada para bloquear se afirmativo ela faz essa jogada
+ * caso nenhuma das verificações anteriores for verdadeira faz uma
+ * jogado gerada randomicamente
+ * 
+ * tabuleiro: Estado atual do tabuleiro
+ * chPlayer: Jogada do adversário(X/O)
+ * chPC: Jogada do PC(X/O)
+ * 
+ **/
 void	pc_play(Tabuleiro *tabuleiro, char chPlayer, char chPC)
 {
 	int linha;

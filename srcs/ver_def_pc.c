@@ -1,5 +1,18 @@
 #include "fh.h"
 
+
+
+/**
+ * Function: *verificar_def_coluna
+ * 
+ * Verifica se a jogada seguinte nas colunas pode ser vencedora
+ * para o adversário caso seja a função retorna um ponteiro contendo as coordenadas
+ * da jogada a fazer para bloquear essa jogada
+ * 
+ * tabuleiro: Estado atual do tabuleiro
+ * chPlayer: Jogada do adversário(X/O)
+ * 
+ **/
 int	*verificar_def_coluna(Tabuleiro *tabuleiro, char chPlayer)
 {
 	int	*rt;
@@ -40,6 +53,19 @@ int	*verificar_def_coluna(Tabuleiro *tabuleiro, char chPlayer)
 	free(rt);
 }
 
+
+
+/**
+ * Function: *verificar_def_linha
+ * 
+ * Verifica se a jogada seguinte nas linhas pode ser vencedora
+ * para o adversário caso seja a função retorna um ponteiro contendo as coordenadas
+ * da jogada a fazer para bloquear essa jogada
+ * 
+ * tabuleiro: Estado atual do tabuleiro
+ * chPlayer: Jogada do adversário(X/O)
+ * 
+ **/
 int	*verificar_def_linha(Tabuleiro *tabuleiro, char chPlayer)
 {
 	int	*rt;
@@ -80,6 +106,18 @@ int	*verificar_def_linha(Tabuleiro *tabuleiro, char chPlayer)
 	free(rt);
 }
 
+
+/**
+ * Function: *verificar_def_diagonal
+ * 
+ * Verifica se a jogada seguinte nas diagonais pode ser vencedora
+ * para o adversário caso seja a função retorna um ponteiro contendo as coordenadas
+ * da jogada a fazer para bloquear essa jogada
+ * 
+ * tabuleiro: Estado atual do tabuleiro
+ * chPlayer: Jogada do adversário(X/O)
+ * 
+ **/
 int	*verificar_def_diagonal(Tabuleiro *tabuleiro, char chPlayer)
 {
 	int	*rt;
@@ -147,6 +185,18 @@ int	*verificar_def_diagonal(Tabuleiro *tabuleiro, char chPlayer)
 		free(rt);
 }
 
+
+
+/**
+ * Function: *verificar_defesaPC
+ * 
+ * Verifica se existe uma jogada para bloquear, caso sim
+ * a função retorna o ponteiro com as coordenadas
+ * 
+ * tabuleiro: Estado atual do tabuleiro
+ * chPlayer: Jogada do adversário(X/O)
+ * 
+ **/
 int	*verificar_defesaPC(Tabuleiro *tabuleiro, char chPlayer)
 {
 	int *coluna = verificar_vit_coluna(tabuleiro, chPlayer);

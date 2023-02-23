@@ -1,5 +1,16 @@
 #include "fh.h"
 
+/**
+ * Function: *verificar_vit_coluna
+ * 
+ * Verifica se a jogada seguinte nas colunas pode ser vencedora
+ * caso seja a função retorna um ponteiro contendo as coordenadas
+ * da jogada a fazer para se vencer
+ * 
+ * tabuleiro: Estado atual do tabuleiro
+ * chPC: Jogada do PC(X/O)
+ * 
+ **/
 int	*verificar_vit_coluna(Tabuleiro *tabuleiro, char chPC)
 {
 	int	*rt;
@@ -40,6 +51,18 @@ int	*verificar_vit_coluna(Tabuleiro *tabuleiro, char chPC)
 	free(rt);
 }
 
+
+/**
+ * Function: *verificar_vit_linha
+ * 
+ * Verifica se a jogada seguinte nas linha pode ser vencedora
+ * caso seja a função retorna um ponteiro contendo as coordenadas
+ * da jogada a fazer para se vencer
+ * 
+ * tabuleiro: Estado atual do tabuleiro
+ * chPC: Jogada do PC(X/O)
+ * 
+ **/
 int	*verificar_vit_linha(Tabuleiro *tabuleiro, char chPC)
 {
 	int	*rt;
@@ -80,6 +103,19 @@ int	*verificar_vit_linha(Tabuleiro *tabuleiro, char chPC)
 	free(rt);
 }
 
+
+
+/**
+ * Function: *verificar_vit_diagonal
+ * 
+ * Verifica se a jogada seguinte nas diagonais pode ser vencedora
+ * caso seja a função retorna um ponteiro contendo as coordenadas
+ * da jogada a fazer para se vencer
+ * 
+ * tabuleiro: Estado atual do tabuleiro
+ * chPC: Jogada do PC(X/O)
+ * 
+ **/
 int	*verificar_vit_diagonal(Tabuleiro *tabuleiro, char chPC)
 {
 	int	*rt;
@@ -147,6 +183,17 @@ int	*verificar_vit_diagonal(Tabuleiro *tabuleiro, char chPC)
 		free(rt);
 }
 
+
+/**
+ * Function: *verificar_vitoriaPC
+ * 
+ * Verifica se existe uma jogada vencedora, caso sim
+ * a função retorna o ponteiro com as coordenadas
+ * 
+ * tabuleiro: Estado atual do tabuleiro
+ * chPC: Jogada do PC(X/O)
+ * 
+ **/
 int	*verificar_vitoriaPC(Tabuleiro *tabuleiro, char chPC)
 {
 	int *coluna = verificar_vit_coluna(tabuleiro, chPC);

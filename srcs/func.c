@@ -23,6 +23,22 @@ void	limparInput(void)
 		;
 }
 
+
+/**
+ * Function: verificarJogada
+ * 
+ * Verifica se a posição atual está livre
+ * 
+ * tabuleiro: Estado atua do tabuleiro
+ * linha:
+ * coluna:
+ * 
+ * returns:
+ *  1 se estiver ocupada
+ *  0 caso contrário
+ * 
+ * 
+ **/
 int	verificarJogada(Tabuleiro *tab, int linha, int coluna)
 {
 	if (tab->board[linha][coluna].caracter == 'X' || tab->board[linha][coluna].caracter == 'O')
