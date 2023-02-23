@@ -73,9 +73,21 @@ int	Menu_Escolha(void)
  **/
 void	header(int n_jogador)
 {
-	system("clear");
-	printf("-------------\n");
-	printf("  JOGADOR %d  \n", n_jogador);
-	printf("-------------\n");
-    printf("\n");
+	if(n_jogador < 3)
+	{
+		system("clear");
+		printf("-------------\n");
+		printf("  JOGADOR %d  \n", n_jogador);
+		printf("-------------\n");
+		printf("\n");
+	}
+	else
+	{
+		system("clear");
+		printf("-------------\n");
+		printf("      AI     \n");
+		printf("-------------\n");
+		printf("\n");
+	}
+	
 }

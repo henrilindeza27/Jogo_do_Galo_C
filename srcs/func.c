@@ -22,3 +22,10 @@ void	limparInput(void)
 	while (getchar() != '\n')
 		;
 }
+
+int	verificarJogada(Tabuleiro *tab, int linha, int coluna)
+{
+	if (tab->board[linha][coluna].caracter == 'X' || tab->board[linha][coluna].caracter == 'O')
+		return (1);
+	return (0);
+}

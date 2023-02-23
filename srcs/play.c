@@ -12,7 +12,7 @@
 void	jogar(Tabuleiro *tabuleiro, char caracter, int n_jogador)
 {
 	int lin, col; // Recebe o valor da linha e da coluna
-
+	int msg_error = 0;
 	while (1)
 	{
 		limparTela();
@@ -21,41 +21,48 @@ void	jogar(Tabuleiro *tabuleiro, char caracter, int n_jogador)
 		else
 			header(2);
 		print_tabuleiro(tabuleiro);
-		puts("Insira as coordenadas da sua jogada");
-
-		printf("Linha: ");
-		while (scanf("%d", &lin) != 1 || !((lin >= 0 && lin <= 2)))
+		
+		do
 		{
-			limparTela();
-			if (n_jogador == 1)
-				header(1);
-			else
-				header(2);
-			print_tabuleiro(tabuleiro);
-			puts("A posição não é válida");
-			puts("Insira novamente");
+			if(msg_error == 0)
+				puts("Insira as coordenadas da sua jogada");
+			else	
+				puts("Posição já ocupada, insira outras coordenadas");
 			printf("Linha: ");
-			//Seguintes scanf servem para limpar o buffer e descartar entradas inválidas
-			scanf("%*[^\n]");
-			scanf("%*c");
-		}
+			while (scanf("%d", &lin) != 1 || !((lin >= 0 && lin <= 2)))
+			{
+				limparTela();
+				if (n_jogador == 1)
+					header(1);
+				else
+					header(2);
+				print_tabuleiro(tabuleiro);
+				puts("A posição não é válida");
+				puts("Insira novamente");
+				printf("Linha: ");
+				//Seguintes scanf servem para limpar o buffer e descartar entradas inválidas
+				scanf("%*[^\n]");
+				scanf("%*c");
+			}
 
-		printf("Coluna: ");
-		while (scanf("%d", &col) != 1 || !((col >= 0 && col <= 2)))
-		{
-			limparTela();
-			if (n_jogador == 1)
-				header(1);
-			else
-				header(2);
-			print_tabuleiro(tabuleiro);
-			puts("A posição não é válida");
-			puts("Insira novamente");
 			printf("Coluna: ");
-			//Seguintes scanf servem para limpar o buffer e descartar entradas inválidas
-			scanf("%*[^\n]");
-			scanf("%*c");
-		}
+			while (scanf("%d", &col) != 1 || !((col >= 0 && col <= 2)))
+			{
+				limparTela();
+				if (n_jogador == 1)
+					header(1);
+				else
+					header(2);
+				print_tabuleiro(tabuleiro);
+				puts("A posição não é válida");
+				puts("Insira novamente");
+				printf("Coluna: ");
+				//Seguintes scanf servem para limpar o buffer e descartar entradas inválidas
+				scanf("%*[^\n]");
+				scanf("%*c");
+			}
+			msg_error = 1;
+		} while (verificarJogada(tabuleiro,lin,col));
 
 		Jogada jogada = {lin, col, caracter};
 

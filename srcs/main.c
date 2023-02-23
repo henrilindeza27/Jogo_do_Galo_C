@@ -12,6 +12,7 @@ int	main(void)
 
 	switch (Menu())
 	{
+	//Jogador vs Jogador
 	case 1:
         limparTela();
         limparInput();
@@ -51,10 +52,52 @@ int	main(void)
                 printf("Jogador 2 ganhou o jogo (%c)\n",simb);
 		}
 		else
-		{
 			printf("O jogo empatou!\n");
-		}
+
 		break ;
+
+	//Jogador vs PC
+	case 2:
+		limparTela();
+        limparInput();
+        op_escolha = Menu_Escolha();
+        if(op_escolha == 'x' || op_escolha == 'X')
+        {
+            ch_j1 = 'X';
+            ch_j2 = 'O';
+        }
+        else
+        {
+            ch_j1 = 'O';
+            ch_j2 = 'X';
+        }
+		while (1)
+		{
+			// Jogador 1
+            header(1);
+			jogar(&tabuleiro, ch_j1,1);
+			// Verifica se o jogo terminou
+			if (verificarVitoria(&tabuleiro, &simb) || verificarEmpate(&tabuleiro))
+				break ;
+
+			
+			pc_play(&tabuleiro,ch_j1,ch_j2);
+			// Verifica se o jogo terminou
+			if (verificarVitoria(&tabuleiro, &simb) || verificarEmpate(&tabuleiro))
+				break ;
+		}
+		if (verificarVitoria(&tabuleiro, &simb))
+		{
+			if(simb == ch_j1)
+                printf("Parabéns ganhaste o jogo\n");
+            else
+                printf("Infelizmente o PC ganhou\n");
+		}
+		else
+			printf("O jogo empatou!\n");
+
+		break ;
+
 	default:
 		break ;
 	}
