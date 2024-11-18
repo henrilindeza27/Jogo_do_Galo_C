@@ -24,12 +24,12 @@ void	pc_play(Tabuleiro *tabuleiro, char chPlayer, char chPC)
 		header(3);
 		int *playVitoria = verificar_vitoriaPC(tabuleiro, chPC);
 		int *playDefesa = verificar_defesaPC(tabuleiro, chPlayer);
-		if (playVitoria != 0)
+		if (playVitoria != 0 && !verificarJogada(tabuleiro, playVitoria[1], playVitoria[2]))
 		{
 			linha = playVitoria[1];
 			coluna = playVitoria[2];
 		}
-		else if(playDefesa != 0)
+		else if(playDefesa != 0 && !verificarJogada(tabuleiro, playDefesa[1], playDefesa[2]))
 		{
 			linha = playDefesa[1];
 			coluna = playDefesa[2];
